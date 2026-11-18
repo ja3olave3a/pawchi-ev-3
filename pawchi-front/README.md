@@ -1,16 +1,35 @@
-# React + Vite
+# Pawchi – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend de la Evaluación Parcial 3 (FullStack 2), hecho con React + Vite.
+El backend (Spring Boot) está en la carpeta `../pawchi`.
 
-Currently, two official plugins are available:
+## Cómo ejecutarlo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run lint
+npm run build
+```
 
-## React Compiler
+## Arquitectura: atomic design
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+src/
+├── components/
+│   ├── atoms/        Button, Input, Label, Text, Image, Link
+│   ├── molecules/    FormField (Label + Input + error), Precio
+│   ├── organisms/    Navbar, Hero, ProductCard, ProductGrid, LoginForm
+│   └── templates/    MainLayout (Navbar + contenido + footer)
+├── pages/            Home, Catalog, Login, NotFound
+├── hooks/            useProductos
+├── services/         productos (datos de prueba; luego llamadas a la API)
+└── styles/           global.css (variables y estilos)
+```
 
-## Expanding the ESLint configuration
+Reglas del equipo:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Las etiquetas de texto y formulario (`h1`, `p`, `label`, `input`, `button`) solo se escriben dentro de `atoms/`.
+- Una molécula combina átomos; un organismo combina moléculas y átomos.
+- Las páginas no tienen estilos propios: eligen un template y ensamblan organismos con datos.
+- Las llamadas al backend viven en `services/` y los hooks las exponen a las páginas.
