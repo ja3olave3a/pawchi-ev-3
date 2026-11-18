@@ -7,29 +7,25 @@ El backend (Spring Boot) está en la carpeta `../pawchi`.
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run lint
-npm run build
+npm run dev
 ```
 
-## Arquitectura: atomic design
+## Estructura (atomic design)
 
 ```
 src/
 ├── components/
 │   ├── atoms/        Button, Input, Label, Text, Image, Link
-│   ├── molecules/    FormField (Label + Input + error), Precio
+│   ├── molecules/    FormField (Label + Input), Precio
 │   ├── organisms/    Navbar, Hero, ProductCard, ProductGrid, LoginForm
 │   └── templates/    MainLayout (Navbar + contenido + footer)
-├── pages/            Home, Catalog, Login, NotFound
-├── hooks/            useProductos
-├── services/         productos (datos de prueba; luego llamadas a la API)
-└── styles/           global.css (variables y estilos)
+├── pages/            Home, Catalog, Login
+├── data/             productos de prueba
+└── styles/           global.css
 ```
 
-Reglas del equipo:
-
-- Las etiquetas de texto y formulario (`h1`, `p`, `label`, `input`, `button`) solo se escriben dentro de `atoms/`.
-- Una molécula combina átomos; un organismo combina moléculas y átomos.
-- Las páginas no tienen estilos propios: eligen un template y ensamblan organismos con datos.
-- Las llamadas al backend viven en `services/` y los hooks las exponen a las páginas.
+- Los átomos son los elementos básicos (botón, input, texto, imagen).
+- Las moléculas juntan átomos (por ejemplo, Label + Input).
+- Los organismos juntan moléculas y átomos (por ejemplo, la tarjeta de producto).
+- El template define el diseño general de la página.
+- Las páginas usan el template y los organismos.

@@ -1,9 +1,9 @@
-function Image({ src, alt, className = '' }) {
+function Image({ src, alt }) {
   if (!src) {
-    return <div role="img" aria-label={alt} className={`img img--vacia ${className}`.trim()} />;
+    return <div className="img-vacia">Sin imagen</div>;
   }
 
-  return <img src={src} alt={alt} loading="lazy" className={`img ${className}`.trim()} />;
+  return <img src={src} alt={alt} className="img" />;
 }
 
 export default Image;

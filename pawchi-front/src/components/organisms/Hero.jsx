@@ -1,18 +1,12 @@
 import Link from '../atoms/Link';
 import Text from '../atoms/Text';
 
-function Hero({ titulo, texto, cta }) {
+function Hero({ titulo, texto, textoBoton, to }) {
   return (
     <section className="hero">
-      <div className="hero__texto">
-        <Text as="h1" className="hero__titulo">{titulo}</Text>
-        <Text className="hero__lead">{texto}</Text>
-        <Link to={cta.to} className="btn btn--accent">{cta.label}</Link>
-      </div>
-
-      <div className="hero__caja" aria-hidden="true">
-        <Text as="span">?</Text>
-      </div>
+      <Text tipo="h1">{titulo}</Text>
+      <Text>{texto}</Text>
+      <Link to={to} className="btn">{textoBoton}</Link>
     </section>
   );
 }

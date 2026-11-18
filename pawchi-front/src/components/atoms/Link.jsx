@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
-function Link({ to, children, className = '', ...props }) {
+function Link({ to, className, children }) {
   return (
-    <NavLink to={to} className={`link ${className}`.trim()} {...props}>
+    <RouterLink to={to} className={className}>
       {children}
-    </NavLink>
+    </RouterLink>
   );
 }
 

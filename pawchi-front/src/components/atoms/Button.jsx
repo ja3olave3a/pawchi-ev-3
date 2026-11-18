@@ -1,6 +1,6 @@
-function Button({ children, variant = 'primary', type = 'button', className = '', ...props }) {
+function Button({ type = 'button', onClick, children }) {
   return (
-    <button type={type} className={`btn btn--${variant} ${className}`.trim()} {...props}>
+    <button type={type} className="btn" onClick={onClick}>
       {children}
     </button>
   );

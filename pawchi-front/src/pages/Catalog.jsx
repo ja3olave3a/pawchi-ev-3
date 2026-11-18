@@ -1,14 +1,12 @@
 import Text from '../components/atoms/Text';
 import ProductGrid from '../components/organisms/ProductGrid';
-import useProductos from '../hooks/useProductos';
+import { productos } from '../data/productos';
 
 function Catalog() {
-  const { productos, cargando, error } = useProductos();
-
   return (
     <section className="page">
-      <Text as="h1">Catálogo</Text>
-      <ProductGrid productos={productos} cargando={cargando} error={error} />
+      <Text tipo="h1">Catálogo</Text>
+      <ProductGrid productos={productos} />
     </section>
   );
 }

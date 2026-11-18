@@ -5,11 +5,11 @@ import Precio from '../molecules/Precio';
 function ProductCard({ producto }) {
   return (
     <article className="card">
-      <Image src={producto.imagen} alt={`Caja ${producto.nombre}`} className="card__img" />
+      <Image src={producto.imagen} alt={producto.nombre} />
 
-      <div className="card__cuerpo">
-        <Text as="h3" className="card__titulo">{producto.nombre}</Text>
-        <Text className="card__descripcion">{producto.descripcion}</Text>
+      <div className="card-cuerpo">
+        <Text tipo="h3">{producto.nombre}</Text>
+        <Text>{producto.descripcion}</Text>
         <Precio valor={producto.precio} />
       </div>
     </article>
