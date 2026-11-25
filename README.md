@@ -9,7 +9,7 @@ Tienda de blind boxes de perritos para coleccionar.
 ## Cómo ejecutar
 Backend:
     cd pawchi
-    ./gradlew bootRun      (en Windows: gradlew.bat bootRun)
+    ./mvnw spring-boot:run (en Windows: mvnw.cmd spring-boot:run, y en PowerShell .\mvnw.cmd spring-boot:run)
 Corre en http://localhost:8080
 
 Frontend:
