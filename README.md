@@ -3,7 +3,7 @@
 Tienda de blind boxes de perritos para coleccionar.
 
 ## Estructura
-- `pawchi/`: backend (Spring Boot, Gradle, Java 21)
+- `pawchi/`: backend (Spring Boot, Maven, Java 21)
 - `pawchi-front/`: frontend (React + Vite, atomic design)
 
 ## Cómo ejecutar
